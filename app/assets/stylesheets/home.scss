@@ -14,12 +14,13 @@
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 #logo:hover {
   //color: rgba(90, 1, 27, 0.9); merit red color
   color: #8E7356;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 
@@ -33,7 +34,8 @@ footer {
 }
 
 footer a {
-  color: #555;
+  color: #555 !important;
+  text-decoration: none !important;
 }
 
 footer a:hover {
@@ -52,4 +54,5 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+  text-decoration: none;
 }
