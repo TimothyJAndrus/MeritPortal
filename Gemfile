@@ -6,6 +6,7 @@ gem 'rails', '4.2.1'
 gem 'devise'
 gem 'haml'
 gem 'simple_form'
+gem "nested_form"
 gem 'activeadmin', github: 'activeadmin'
 # gem 'activevalidators', '~> 3.0.0' # <-- mind the patch version
 gem 'bcrypt', '3.1.7'

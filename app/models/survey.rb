@@ -3,6 +3,8 @@ class Survey < ActiveRecord::Base
   has_many :survey_questions
   has_many :questions, through: :survey_questions
 
+  accepts_nested_attributes_for :questions, :allow_destroy => true
+
 end
 
 # == Schema Information
