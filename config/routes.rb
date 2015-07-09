@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  resources :survey
+
   root 'home#index'
 
   get 'home/about' => 'home#about'
