@@ -1,4 +1,6 @@
 class SurveyQuestion < ActiveRecord::Base
+  belongs_to :survey, class_name: "Survey", foreign_key: "survey_id"
+  belongs_to :question
 end
 
 # == Schema Information

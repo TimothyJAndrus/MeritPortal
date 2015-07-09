@@ -1,4 +1,8 @@
 class Survey < ActiveRecord::Base
+
+  has_many :survey_questions
+  has_many :questions, through: :survey_questions
+
 end
 
 # == Schema Information
