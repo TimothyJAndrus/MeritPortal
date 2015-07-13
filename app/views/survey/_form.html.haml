@@ -1,15 +1,11 @@
-= nested_form_for @survey, html: { class: 'form-horizontal' } do |form|
+= simple_form_for [@survey], html: { class: 'form-horizontal' } do |form|
   = form.error_notification
 
   .form-inputs
-    = form.input :name, label: "Name"
-    =#= form.association :question, label: "Question"
-    = form.fields_for :question do |question_form|
-      = question_form.text_field :question_text
-      = question_form.link_to_remove "Remove this question"
-    %p
-      = form.link_to_add "Add a question", :question
-
+    = form.simple_fields_for :questions do |q|
+      = q.question_text
+      = q.simple_fields_for :responses do |r|
+        = r.response_text
   .form-actions
     = form.button :submit, :class => "btn btn-success"
-    = link_to 'Back', survey_path, :class => "btn btn-danger"
+    =#= link_to 'Back', survey_path, :class => "btn btn-danger"

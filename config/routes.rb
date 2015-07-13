@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
   get 'home/help' => 'home#help'
 
+  # get 'survey/show' => 'survey#show'
+  # 
+  # get 'survey/index'=> 'survey#index'
+
+  get 'survey/survey_response/:survey_id' => 'survey#survey_response'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -2,8 +2,9 @@ class Survey < ActiveRecord::Base
 
   has_many :survey_questions
   has_many :questions, through: :survey_questions
+  has_many :responses
 
-  accepts_nested_attributes_for :questions, :allow_destroy => true
+  accepts_nested_attributes_for :questions, :responses, :allow_destroy => true
 
 end
 
@@ -14,4 +15,5 @@ end
 #  id         :integer          not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  name       :string
 #
