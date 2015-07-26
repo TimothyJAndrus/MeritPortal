@@ -3,6 +3,11 @@ class Mentee < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :mentee_surveys
+  has_many :surveys, through: :mentee_surveys
+  has_many :responses
+
 end
 
 # == Schema Information

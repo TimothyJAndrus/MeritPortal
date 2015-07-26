@@ -4,6 +4,9 @@ class Survey < ActiveRecord::Base
   has_many :questions, through: :survey_questions
   has_many :responses
 
+  has_many :mentee_surveys
+  has_many :mentees, through: :mentee_surveys
+
   accepts_nested_attributes_for :questions, :responses, :allow_destroy => true
 
 end

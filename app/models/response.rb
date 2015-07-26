@@ -1,6 +1,7 @@
 class Response < ActiveRecord::Base
   has_one :survey
   has_one :question
+  has_one :mentee
 end
 
 # == Schema Information

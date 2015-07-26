@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mentee_id: 1
+  survey_id: 1
+
+two:
+  mentee_id: 1
+  survey_id: 1
+
+# == Schema Information
+#
+# Table name: mentee_surveys
+#
+#  id         :integer          not null, primary key
+#  mentee_id  :integer
+#  survey_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
