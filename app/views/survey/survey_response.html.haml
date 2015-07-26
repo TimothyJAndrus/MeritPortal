@@ -5,8 +5,8 @@
         .panel-heading
           .row
             .col-lg-6.col-xs-12
-              %h3.panel-tile
-                New Survey
+              %h2.panel-tile.title-format
+                =@survey.name + " Survey"
         .panel-body
           = render 'form'
           %br

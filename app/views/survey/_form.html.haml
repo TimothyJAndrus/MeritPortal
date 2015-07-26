@@ -3,9 +3,12 @@
 
   .form-inputs
     = form.simple_fields_for :questions do |q|
-      = q.question_text
-      = q.simple_fields_for :responses do |r|
-        = r.response_text
+      .question_text
+        = q.object.question_text
+      = q.simple_fields_for :responses, q.object.responses.build do |r|
+        = r.input :response_text, label: false, required: true
+        - r.hidden_field :question_id
   .form-actions
-    = form.button :submit, :class => "btn btn-success"
+    .form-btn
+      = form.button :submit, :class => "btn btn-success"
     =#= link_to 'Back', survey_path, :class => "btn btn-danger"

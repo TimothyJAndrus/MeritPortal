@@ -1,9 +1,10 @@
 class SurveyController < ApplicationController
 
-  #before_action :authenticate_admin_user! #only want the admin to be able to have control over surveys
+  before_action :authenticate_admin_user!, only: :index #only want the admin to be able to have control over surveys
 
 
   def index #get
+    @Surveys = Survey.all
   end
 
   def show #get
@@ -11,24 +12,27 @@ class SurveyController < ApplicationController
 
   def survey_response
     @survey = Survey.find(params[:survey_id])
-    @questions = @survey.questions.build
-    @responses = @questions.responses.build
+    @questions = @survey.questions
 
 
+  end
 
-      # = simple_form_for @survey do |blah|
-      #   = blah.simple_fields_for :questions do |q|
-      #     = q.object.question_text
-      #     = q.simple_fields_for :responses do |r|
-      #       = r.response_text
-
-
+  def update
+    @survey = Survey.find(params[:id])
+    respond_to do |format|
+      if @survey.update(survey_params)
+        format.html { redirect_to home_about_path}
+      else
+        format.html { render action: "edit" }
+      end
+    end
   end
 
 private
 
   def survey_params
-
+    params.require(:survey).permit(questions_attributes: [:id, responses_attributes: [:response_text]])
+    #permit_params questions_attributes: [:question_text, :id, responses_attributes: [:response_text]]
   end
 
 

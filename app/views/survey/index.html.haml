@@ -1,0 +1,34 @@
+%h1
+  Responses
+%table.table
+  %thead
+    %tr
+      %th
+        Survey Name
+      %th
+        Questions
+      %th
+        Answers
+      %th
+        Actions
+    %tbody
+
+      - if @Surveys.present? && @Surveys.any?
+        - @Surveys.each do |survey|
+          %tr
+            %td
+              = survey.name
+            %td
+              - survey.questions.each do |question|
+                = question.question_text
+                %br
+            %td
+              - survey.questions.each do |q|
+                - q.responses.each do |response|
+                  = response.response_text
+                  %br
+
+            %td
+              -# = link_to "Show", shortened_link_url(link.unique_identifier), :class => "btn btn-default"
+              -# = link_to "Edit", edit_shortened_link_url(link.unique_identifier), :class => "btn btn-primary"
+              -# = link_to "Destroy", shortened_link_url(link.unique_identifier), :class => "btn btn-danger", method: :delete, data: {:confirm => "Are you sure?"}
