@@ -15,6 +15,7 @@ permit_params :name, questions_attributes: [:question_text, :id, responses_attri
   form do |f|
     f.inputs "Survey" do
       f.input :name, label: "NAME", required: true
+      f.input :due_date, label: "DATE", required: true
     end
     f.inputs "Questions" do
       f.has_many :questions, allow_destroy: true, heading: false do |q|
@@ -30,6 +31,9 @@ permit_params :name, questions_attributes: [:question_text, :id, responses_attri
         column "Name" do |n|
           n.name
         end
+        column "Due Date" do |d|
+          d.due_date
+        end
         table_for survey.questions do
           column "Questions" do |question|
             question.question_text
@@ -40,5 +44,4 @@ permit_params :name, questions_attributes: [:question_text, :id, responses_attri
   end
 
   #permit_params(:question_text, :name)
-
 end

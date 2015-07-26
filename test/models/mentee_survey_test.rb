@@ -15,4 +15,5 @@ end
 #  survey_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  is_done    :boolean
 #

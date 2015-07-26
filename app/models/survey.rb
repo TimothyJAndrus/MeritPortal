@@ -19,4 +19,5 @@ end
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  name       :string
+#  due_date   :date
 #
