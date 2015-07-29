@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726224847) do
+ActiveRecord::Schema.define(version: 20150728151529) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20150726224847) do
   create_table "mentee_surveys", force: :cascade do |t|
     t.integer  "mentee_id"
     t.integer  "survey_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "is_done"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "is_done",    default: false
   end
 
   create_table "mentees", force: :cascade do |t|

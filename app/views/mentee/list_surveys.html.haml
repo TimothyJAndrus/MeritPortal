@@ -1,0 +1,14 @@
+%h1
+  Your Surveys
+
+- @survey_hash.each do |name, surveys|
+  %h2
+    = name
+  - if surveys.any?
+    %ul
+      -  surveys.each do |survey|
+        %li
+          = link_to survey.name, survey_path(survey)
+  - else
+    %p
+      = "No #{name}"

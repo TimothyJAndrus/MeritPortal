@@ -1,6 +1,6 @@
 class MenteeSurvey < ActiveRecord::Base
   belongs_to :survey
-  belongs_to :question
+  belongs_to :mentee
 end
 
 # == Schema Information
@@ -12,5 +12,5 @@ end
 #  survey_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  is_done    :boolean
+#  is_done    :boolean          default(FALSE)
 #

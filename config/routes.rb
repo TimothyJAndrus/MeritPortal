@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :survey
+  resources :survey do
+    member do
+      get "survey_response" => "survey#survey_response"
+    end
+  end
 
   root 'home#index'
 
@@ -13,11 +17,13 @@ Rails.application.routes.draw do
 
   get 'mentee/'  => 'mentee#home'
 
+  get 'mentee/list_surveys' => 'mentee#list_surveys'
+
   # get 'survey/show' => 'survey#show'
   #
   # get 'survey/index'=> 'survey#index'
 
-  get 'survey/survey_response/:survey_id' => 'survey#survey_response'
+  # get 'survey/:survey_id/survey_response/' => 'survey#survey_response'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

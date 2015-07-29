@@ -4,10 +4,17 @@ class Survey < ActiveRecord::Base
   has_many :questions, through: :survey_questions
   has_many :responses
 
-  has_many :mentee_surveys
+  has_many :mentee_surveys, dependent: :destroy
   has_many :mentees, through: :mentee_surveys
 
   accepts_nested_attributes_for :questions, :responses, :allow_destroy => true
+
+  after_create :associate_all_mentees
+
+  private
+    def associate_all_mentees
+      self.mentees = Mentee.all
+    end
 
 end
 

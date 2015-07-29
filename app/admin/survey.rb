@@ -15,7 +15,7 @@ permit_params :name, questions_attributes: [:question_text, :id, responses_attri
   form do |f|
     f.inputs "Survey" do
       f.input :name, label: "NAME", required: true
-      f.input :due_date, label: "DATE", required: true
+      f.input :due_date, label: "DUE DATE", required: true
     end
     f.inputs "Questions" do
       f.has_many :questions, allow_destroy: true, heading: false do |q|
