@@ -1,5 +1,6 @@
 class MenteeController < ApplicationController
   before_action :authenticate_mentee!
+  before_action :find_survey, only: [:answers, :complete]
 
   def home
   end
@@ -15,10 +16,16 @@ class MenteeController < ApplicationController
 
   end
 
+  def answers
+  end
+
   def complete
-    @survey = current_mentee.surveys.find(params[:id])
   end
   #list all the surveys and the status of each survey, along with its due date
 
   #list the boolean in the join table, since that is specific to the one instance
+private
+    def find_survey
+      @survey = current_mentee.surveys.find(params[:survey_id])
+    end
 end

@@ -1,0 +1,11 @@
+%h1
+  = "Responses To Survey " + @survey.name
+%ol
+  - @survey.questions.each do |q|
+    %li
+      = q.question_text
+      %p
+        - q.responses.where(:mentee_id => current_mentee.id).each do |response|
+          = response.response_text
+
+= link_to "Edit", survey_response_survey_path(@survey.id), :class => "btn btn-primary"

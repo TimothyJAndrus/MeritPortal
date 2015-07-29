@@ -5,10 +5,10 @@
     = form.simple_fields_for :questions do |q|
       .question_text
         = q.object.question_text
-      = q.simple_fields_for :responses, q.object.responses.build do |r|
+      = q.simple_fields_for :responses, q.object.responses.where(:mentee_id => current_mentee.id).first || q.object.responses.build do |r|
         = r.input :response_text, label: false, required: true
-        - r.hidden_field :question_id
-        - r.hidden_field :mentee_id
+        = r.hidden_field :question_id
+        = r.hidden_field :mentee_id
   .form-actions
     .form-btn
       = form.button :submit, :class => "btn btn-success"

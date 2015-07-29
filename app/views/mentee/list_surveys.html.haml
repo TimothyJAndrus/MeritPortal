@@ -8,7 +8,7 @@
     %ul
       -  surveys.each do |survey|
         %li
-          = link_to survey.name, survey_path(survey)
+          = link_to survey.name, mentee_answers_path(survey)
   - else
     %p
       = "No #{name}"

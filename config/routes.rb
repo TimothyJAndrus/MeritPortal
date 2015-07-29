@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get 'mentee/list_surveys' => 'mentee#list_surveys'
 
+  get 'mentee/answers/:survey_id' => 'mentee#answers', as: :mentee_answers
+
   # get 'survey/show' => 'survey#show'
   #
   # get 'survey/index'=> 'survey#index'
