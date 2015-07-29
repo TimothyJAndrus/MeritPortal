@@ -7,6 +7,7 @@ class Mentee < ActiveRecord::Base
   has_many :mentee_surveys
   has_many :surveys, through: :mentee_surveys
   has_many :responses
+  accepts_nested_attributes_for :responses
 
 end
 

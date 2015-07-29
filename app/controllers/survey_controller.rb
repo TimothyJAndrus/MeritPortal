@@ -12,12 +12,20 @@ class SurveyController < ApplicationController
 
   def survey_response
     @questions = @survey.questions
+    @mentee_survey = @survey.mentee_surveys.where(:mentee_id => current_mentee.id).first_or_initialize
+
+    if @mentee_survey.is_done = true
+      @old_responses = current_mentee.responses.where(:survey_id => @mentee_survey.survey_id).destroy_all
+    else
+    end
   end
 
   def update
-    @mentee_survey = @survey.mentee_surveys.where(:mentee_id => current_mentee.id).first_or_initialize
-
-
+     @mentee_survey = @survey.mentee_surveys.where(:mentee_id => current_mentee.id).first_or_initialize
+    # if @mentee_survey.is_done = true
+    #   current_mentee.responses.where(:survey_id => @mentee_survey.survey_id).destroy_all
+    # else
+    # end
     # current_mentee.responses = params[:survey][:response_attributes]
     # @mentee_responses = current_mentee.responses
     # @mentee_response = @mentee_responses.where(:question_id = params[:question_d], :survey_id).first_or_create
@@ -43,7 +51,7 @@ private
   end
 
   def survey_params
-    params.require(:survey).permit(mentee_attributes: [:id], questions_attributes: [:id, responses_attributes: [:response_text, :question_id, :mentee_id]])
+    params.require(:survey).permit(questions_attributes: [:question_id, responses_attributes: [:response_text]])
     #permit_params questions_attributes: [:question_text, :id, responses_attributes: [:response_text]]
   end
 
