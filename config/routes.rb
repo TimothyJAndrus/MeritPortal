@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :conversations, only: [:index, :show, :destroy]
+
   root 'home#index'
 
   get 'home/about' => 'home#about'
