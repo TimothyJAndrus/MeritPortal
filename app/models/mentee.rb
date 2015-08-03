@@ -9,6 +9,8 @@ class Mentee < ActiveRecord::Base
   has_many :responses
   accepts_nested_attributes_for :responses
 
+  acts_as_messageable
+
 end
 
 # == Schema Information

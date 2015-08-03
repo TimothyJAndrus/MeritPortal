@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get 'home/help' => 'home#help'
 
-  get 'mentee/'  => 'mentee#home'
+  get 'mentee/'  => 'mentee#home', as: :mentee_home
 
   get 'mentee/list_surveys' => 'mentee#list_surveys'
 

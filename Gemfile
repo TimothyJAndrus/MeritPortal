@@ -8,6 +8,7 @@ gem 'haml'
 gem 'simple_form'
 gem "nested_form"
 gem 'activeadmin', github: 'activeadmin'
+gem 'mailboxer'
 # gem 'activevalidators', '~> 3.0.0' # <-- mind the patch version
 gem 'bcrypt', '3.1.7'
 gem 'bootstrap-sass', '3.2.0.0'

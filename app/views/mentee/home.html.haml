@@ -1,2 +1,6 @@
-.h2
+%h2
   This is your dashboard
+- if @incomplete_surveys.any?
+  = "You have incomplete surveys"
+- else
+  = 'You have completed all your surveys'
