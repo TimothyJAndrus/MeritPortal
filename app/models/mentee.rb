@@ -1,6 +1,8 @@
 class Mentee < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  acts_as_messageable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -8,8 +10,6 @@ class Mentee < ActiveRecord::Base
   has_many :surveys, through: :mentee_surveys
   has_many :responses
   accepts_nested_attributes_for :responses
-
-  acts_as_messageable
 
 end
 

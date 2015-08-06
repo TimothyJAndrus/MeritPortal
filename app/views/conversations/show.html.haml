@@ -1,0 +1,10 @@
+.panel-heading
+  =@conversation.subject
+.messages
+  = @conversation.receipts_for(current_mentee).each do |m|
+    - message = m.message
+    - read = m.is_unread?
+    = message.sender.name
+    = "says at #{message.created_at.strftime("%-d %B %Y, %H:%M:%S")}"
+    = message.body
+  end
