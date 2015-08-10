@@ -8,3 +8,5 @@
     = "says at #{message.created_at.strftime("%-d %B %Y, %H:%M:%S")}"
     = message.body
   end
+
+= simple_form_for :conversation, html: {class: 'form-horizontal'} do |form|
