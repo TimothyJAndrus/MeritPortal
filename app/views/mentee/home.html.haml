@@ -1,6 +1,12 @@
-%h2
+%h1
   = "#{@mentee.name}'s Dashboard"
 - if @incomplete_surveys.any?
-  = link_to "You have incomplete surveys", mentee_list_surveys_path
+  %h2
+    = "You have incomplete surveys"
+  %br
+  =	link_to "Please Complete Your Surveys", mentee_list_surveys_path, :class => "btn btn-danger"
 - else
-  = 'You have completed all your surveys'
+  %h2
+    = 'You have completed all your surveys'
+  %br
+  = link_to "View Your Answers", mentee_list_surveys_path, :class => "btn btn-primary"
