@@ -1,6 +1,6 @@
 %h2
-  This is your dashboard
+  = "#{@mentee.name}'s Dashboard"
 - if @incomplete_surveys.any?
-  = "You have incomplete surveys"
+  = link_to "You have incomplete surveys", mentee_list_surveys_path
 - else
   = 'You have completed all your surveys'

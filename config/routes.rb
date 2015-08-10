@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :mentees
+  devise_for :mentees, :controllers => { registrations: 'registrations'}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+
 
   resources :survey do
     member do
