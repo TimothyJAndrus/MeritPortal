@@ -5,10 +5,28 @@
   %h2
     = name
   - if surveys.any?
-    %ul
-      -  surveys.each do |survey|
-        %li
-          = link_to survey.name, mentee_answers_path(survey)
+    %table.table.table-striped
+      %thead
+        %tr
+          %th
+            ="#"
+          %th
+            = "Name"
+          %th
+            = "Due Date"
+          %th
+            = "Action"
+      %tbody
+        -  surveys.each do |survey|
+          %tr
+            %td
+              = "1" #figure out how to get incrementing numbers
+            %td
+              = survey.name
+            %td
+              = survey.due_date
+            %td
+              = link_to "Respond", mentee_answers_path(survey), class: "btn btn-primary"
   - else
     %p
       = "No #{name}"
