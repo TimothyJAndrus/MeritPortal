@@ -4,6 +4,8 @@ class Question < ActiveRecord::Base
   has_many :surveys, through: :survey_questions
   accepts_nested_attributes_for :responses, :allow_destroy => true
 
+  validates :question_text, presence: true
+
 end
 
 # == Schema Information

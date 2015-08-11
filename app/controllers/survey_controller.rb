@@ -13,15 +13,23 @@ class SurveyController < ApplicationController
   def survey_response
     @questions = @survey.questions
     @mentee_survey = @survey.mentee_surveys.where(:mentee_id => current_mentee.id).first_or_initialize
-
-    if @mentee_survey.is_done = true
-      @old_responses = current_mentee.responses.where(:survey_id => @mentee_survey.survey_id).destroy_all
-    else
-    end
   end
 
   def update
      @mentee_survey = @survey.mentee_surveys.where(:mentee_id => current_mentee.id).first_or_initialize
+
+     question_attributes = params[:survey][:questions_attributes]
+
+     question_attributes.each do |key_id, value_hash|
+       question = @survey.questions.where(:id => value_hash[:id]).first
+       response = @survey.responses.where(:question_id => question.id, :mentee_id => current_mentee.id).first_or_initialize
+       response.response_text = value_hash["responses_attributes"].values.first[:response_text]
+       response.save!
+     end
+
+
+
+
     # if @mentee_survey.is_done = true
     #   current_mentee.responses.where(:survey_id => @mentee_survey.survey_id).destroy_all
     # else
@@ -30,12 +38,12 @@ class SurveyController < ApplicationController
     # @mentee_responses = current_mentee.responses
     # @mentee_response = @mentee_responses.where(:question_id = params[:question_d], :survey_id).first_or_create
     respond_to do |format|
-      if @survey.update(survey_params)
+      if @survey.save!
         @mentee_survey.is_done = true
         @mentee_survey.save
         format.html { redirect_to mentee_list_surveys_path }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "survey_response" }
       end
     end
   end

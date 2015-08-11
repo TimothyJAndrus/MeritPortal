@@ -1,13 +1,11 @@
-= simple_form_for :mentee_responses, html: { class: 'form-horizontal' } do |form|
+= simple_form_for @survey, html: { class: 'form-horizontal' } do |form|
   = form.error_notification
   .form-inputs
     = form.simple_fields_for :questions do |q|
       .question_text
         = q.object.question_text
-      = q.simple_fields_for :responses, q.object.responses.where(:mentee_id => current_mentee.id) || q.object.responses.build do |r|
+      = q.simple_fields_for :responses, q.object.responses.where(:mentee_id => current_mentee.id).first || q.object.responses.build(:mentee_id => current_mentee.id) do |r|
         = r.input :response_text, label: false, required: true
-        = r.hidden_field :question_id
-        = r.hidden_field :mentee_id
   .form-actions
     .form-btn
       = form.button :submit, :class => "btn btn-success"

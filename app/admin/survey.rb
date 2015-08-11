@@ -3,7 +3,7 @@ ActiveAdmin.register Survey do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :name, questions_attributes: [:question_text, :id, responses_attributes: [:response_text]]
+permit_params :name, :due_date, questions_attributes: [:question_text, :id, :_destroy, responses_attributes: [:response_text]]
 #
 # or
 #

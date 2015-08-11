@@ -17,10 +17,10 @@
           %th
             = "Action"
       %tbody
-        -  surveys.each do |survey|
+        -  surveys.each_with_index do |survey, index|
           %tr
             %td
-              = "1" #figure out how to get incrementing numbers
+              = index + 1 #figure out how to get incrementing numbers
             %td
               = survey.name
             %td

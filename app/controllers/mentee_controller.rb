@@ -12,6 +12,7 @@ class MenteeController < ApplicationController
   end
 
   def answers
+    @questions = @survey.questions
   end
 
   def complete
