@@ -1,0 +1,6 @@
+%h2
+  Conversations
+%p
+  = link_to "Start Conversation", new_message_path, :class => "btn btn-lg btn-primary"
+%ul.list-group
+  = render partial: 'conversations/conversation', collection: @conversations
