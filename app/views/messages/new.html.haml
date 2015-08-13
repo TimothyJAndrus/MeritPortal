@@ -3,7 +3,7 @@
   .form-inputs.form-control
   = form.input :subject, label: "Subject", required: true
   = form.input :body, as: :text, label: "Message", cols: 3, required: true
-  = form.select :recipients, recipient_options, multiple: true, required: true
+  = form.select :recipients, recipient_options(@chosen_recipient), multiple: true, required: true
   .form-actions
     .form-btn
       = form.button :submit, :class => "btn btn-success"

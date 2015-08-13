@@ -8,10 +8,6 @@ class MenteeController < ApplicationController
   end
 
   def list_surveys
-<<<<<<< HEAD
-
-=======
->>>>>>> messenger
   end
 
   def answers

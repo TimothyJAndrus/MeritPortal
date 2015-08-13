@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 gem 'devise'
+gem 'devise_invitable', '~> 1.3.4' 
 gem 'haml'
 gem 'simple_form'
 gem "nested_form"
