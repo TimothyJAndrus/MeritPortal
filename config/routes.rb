@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :mentors
+  devise_for :mentors, :controllers => {registrations: 'registrations'}
   devise_for :mentees, :controllers => { registrations: 'registrations'}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -36,6 +36,10 @@ Rails.application.routes.draw do
   get 'mentee/list_surveys' => 'mentee#list_surveys'
 
   get 'mentee/answers/:survey_id' => 'mentee#answers', as: :mentee_answers
+
+  get 'mentor/edit/:mentor_id' => 'mentor#edit', as: :edit_mentor
+
+  get 'mentor/' => 'mentor#home', as: :mentor_home
 
   # get 'survey/show' => 'survey#show'
   #

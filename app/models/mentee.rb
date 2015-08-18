@@ -11,6 +11,9 @@ class Mentee < ActiveRecord::Base
   has_many :responses
   accepts_nested_attributes_for :responses
 
+  validates :name, presence: true
+  validates :email, presence: true
+
 end
 
 # == Schema Information

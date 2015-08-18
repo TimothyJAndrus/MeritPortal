@@ -1,6 +1,6 @@
 = simple_form_for :messages, html: {class: 'form-horizontal'} do |form|
   = form.error_notification
-  .form-inputs.form-control
+  .form-inputs
   = form.input :subject, label: "Subject", required: true
   = form.input :body, as: :text, label: "Message", cols: 3, required: true
   = form.select :recipients, recipient_options(@chosen_recipient), multiple: true, required: true
