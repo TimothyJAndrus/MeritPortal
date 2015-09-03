@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
   get 'mentor/edit/:mentor_id' => 'mentor#edit', as: :edit_mentor
 
+  match 'mentor/destroy/:mentor_id' => 'mentor#destroy', via: :delete, as: :destroy_mentor
+
   get 'mentor/' => 'mentor#home', as: :mentor_home
 
   # get 'survey/show' => 'survey#show'

@@ -22,6 +22,7 @@ ActiveAdmin.register_page "Dashboard" do
               column( "Name") {|m| m.name}
               column( "Approved?") { |m| status_tag (m.approved? ? "Approved" : "Not Approved"), (m.approved? ? :ok : :error)}
               column( "Edit" ) {|m| link_to "Approve Mentor", edit_mentor_path(m.id)} #TO_DO set conditional to be able to get rid of mentor
+              column( "Remove") {|m| link_to "Delete Mentor", destroy_mentor_path(m.id), method: :delete, data: { confirm: "You sure?" }}
             end
           end
         end

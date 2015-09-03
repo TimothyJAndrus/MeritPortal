@@ -1,5 +1,5 @@
 class MenteeController < ApplicationController
-  before_action :authenticate_mentee!
+  before_action :redirect_if_already_signed_in!
   before_action :find_survey, only: [:answers, :complete]
   before_action :survey_hash, only: [:home, :list_surveys]
 
@@ -32,5 +32,13 @@ private
       completed_surveys = current_mentee.surveys.where(id: completed_survey_ids)
       @incomplete_surveys = current_mentee.surveys.where(id: incomplete_survey_ids)
       @survey_hash = {"Incomplete Surveys" => @incomplete_surveys, "Completed Surveys" => completed_surveys}
+    end
+
+    def redirect_if_already_signed_in!
+      if mentor_signed_in?
+        redirect_to mentor_home_path
+      else
+        :authenticate_mentee!
+      end
     end
 end
