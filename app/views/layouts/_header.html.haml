@@ -7,7 +7,12 @@
         %li
           %li= link_to "Edit account", edit_mentee_registration_path, :class => "edit-account"
           %li= link_to "Logout", destroy_mentee_session_path, :method => "delete", :class => "logout"
-      -else
+      -if mentor_signed_in?
         %li
-          %li= link_to "Login", new_mentee_session_path, :class => 'login'
-          %li= link_to "Sign up", new_mentee_registration_path, :class => 'signup'
+          %li= link_to "Edit account", edit_mentor_registration_path, :class => "edit-account"
+          %li= link_to "Logout", destroy_mentor_session_path, :method => "delete", :class => "logout"
+      -if !mentor_signed_in? && !mentee_signed_in?
+        %li
+          %li= link_to "Mentor Login", new_mentor_session_path, :class => 'login'
+          %li= link_to "Mentee Login", new_mentee_session_path, :class => 'login'
+          -#%li= link_to "Sign up", new_mentee_registration_path, :class => 'signup'

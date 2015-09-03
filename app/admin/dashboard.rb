@@ -21,7 +21,7 @@ ActiveAdmin.register_page "Dashboard" do
             table_for Mentor.all do |m|
               column( "Name") {|m| m.name}
               column( "Approved?") { |m| status_tag (m.approved? ? "Approved" : "Not Approved"), (m.approved? ? :ok : :error)}
-              column( "Edit" ) {|m| link_to "Approve Mentor", edit_mentor_path(m.id)}
+              column( "Edit" ) {|m| link_to "Approve Mentor", edit_mentor_path(m.id)} #TO_DO set conditional to be able to get rid of mentor
             end
           end
         end
