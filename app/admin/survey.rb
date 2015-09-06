@@ -13,6 +13,7 @@ permit_params :name, :due_date, questions_attributes: [:question_text, :id, :_de
 #   permitted
 # end
   form do |f|
+    f.semantic_errors *f.object.errors.keys
     f.inputs "Survey" do
       f.input :name, label: "NAME", required: true
       f.input :due_date, label: "DUE DATE", required: true

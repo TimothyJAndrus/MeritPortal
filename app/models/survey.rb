@@ -11,6 +11,8 @@ class Survey < ActiveRecord::Base
 
   after_create :associate_all_mentees
 
+  validates :questions, presence: {message: "cannot be blank"}
+
   private
     def associate_all_mentees
       self.mentees = Mentee.all
